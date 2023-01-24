@@ -1,0 +1,22 @@
+body {
+	background-color: #454b51;
+	color: #fff;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	margin: auto;
+	padding: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+footer .info-copyright {
+	display: inline-block;
+	color: #fff;
+}
+
+footer .info-copyright a {
+	color: #fff;
+}

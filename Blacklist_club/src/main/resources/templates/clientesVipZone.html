@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+	<meta charset="utf-8"/>
+	<title>VIP Clientes</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+
+<div align="center">
+    <h1>VIP Clientes zone: </h1><h1 th:text="${vipZone.zona}"></h1>
+    <br/><br/>
+    <table th:replace="./show_contacts::vipclientes"></table>
+    <br>
+    <a th:href="@{'/newVipCliente/' + ${vipZone.id}}">Añadir cliente vip</a>
+    <!-- <a href="newVipCliente">Añadir cliente vip</a> -->
+    <a href="/">Inicio</a>
+</div>    
+
+	<footer th:replace="layout/layout::footer" class="bg-dark"></footer>
+
+</body>
+</html>

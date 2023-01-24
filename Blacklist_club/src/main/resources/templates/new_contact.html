@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+<meta charset="utf-8" />
+<title>Crear nuevo contacto</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+
+	<div align="center">
+		<h1>Crear nuevo contacto</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${persona}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>Nombre:</td>
+					<td>
+						<input type="text" th:field="*{nombre}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Apellidos:</td>
+					<td><input type="text" th:field="*{apellidos}" /></td>
+				</tr>
+				<tr>
+					<td>Fecha de nacimiento (AAAA-MM-DD):</td>
+					<td><input type="text" th:field="*{fechaNac}" /></td>
+				</tr>
+				<tr>
+					<td>Telefono:</td>
+					<td><input type="text" th:field="*{telefono}" /></td>
+				</tr>	
+				<tr>
+					<td>Provincia:</td>
+					<td><input type="text" th:field="*{provincia}" /></td>
+				</tr>
+				<tr>
+					<td>Profesion:</td>
+					<td><input type="text" th:field="*{profesion}" /></td>
+				</tr>								
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

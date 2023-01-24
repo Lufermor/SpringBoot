@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+	<meta charset="utf-8"/>
+	<title>Vip zones</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+
+<div align="center">
+    <h1>Vip zones</h1>
+    <br/><br/>
+    <table th:replace="./show_contacts::vipzones"></table>
+    <br>
+    <a href="newVipZone">Añadir vip zone</a>
+</div>    
+
+	<footer th:replace="layout/layout::footer" class="bg-dark"></footer>
+
+</body>
+</html>

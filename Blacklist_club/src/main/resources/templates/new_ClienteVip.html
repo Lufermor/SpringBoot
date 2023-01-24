@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+<meta charset="utf-8" />
+<title>Crear nuevo Vip cliente</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+
+	<div align="center">
+		<h1>Crear nuevo Vip cliente</h1>
+		<br />
+		<form action="#" th:action="@{/saveClienteVip}" th:object="${clienteVip}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>DNI:</td>
+					<td>
+						<input type="text" th:field="*{dni}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="*{nombre}" /></td>
+				</tr>
+				<tr>
+					<td>Edad:</td>
+					<td><input type="text" th:field="*{edad}" /></td>
+				</tr>
+				<tr>
+					<td>ciudad:</td>
+					<td><input type="text" th:field="*{ciudad}" /></td>
+				</tr>
+				<tr>
+					<td>nº Vip Zone:</td>
+					<td><input type="text" th:field="*{vipzone}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

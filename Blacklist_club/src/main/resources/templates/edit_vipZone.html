@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Editar Vip zone</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Editar Vip zone</h1>
+		<br />
+		<form action="#" th:action="@{/saveVipZone}" th:object="${vipZone}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>ID vip zone:</td>
+					<td>
+						<input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>			
+				<tr>				
+					<td>Zona:</td>
+					<td>
+						<input type="text" th:field="*{zona}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Numero de personas:</td>
+					<td><input type="text" th:field="*{numPersonas}" /></td>
+				</tr>
+				<tr>
+					<td>Gasto:</td>
+					<td><input type="text" th:field="*{gasto}" /></td>
+				</tr>
+				<tr>
+					<td>Disponibilidad:</td>
+					<td><input type="text" th:field="*{disponibilidad}" /></td>
+				</tr>						
+				<tr>
+					<td colspan="2"><button type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
