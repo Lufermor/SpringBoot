@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+<meta charset="utf-8" />
+<title>Fragments guardados</title>
+</head>
+<body>
+	<table border="1" cellpadding="10" th:fragment="table_contacts1">
+        <thead>
+            <tr>
+                <th>ID Contacto</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+                <th>Telefono</th>
+                <th>Provincia</th>
+                <th>Profesion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="persona : ${listaPersonas}">
+            	<td th:text="${persona.id}">Contacto ID</td>
+                <td th:text="${persona.nombre}">Nombre</td>
+                <td th:text="${persona.apellidos}">Apellidos</td>
+                <td th:text="${persona.fechaNac}">Fecha de nacimiento</td>
+                <td th:text="${persona.telefono}">Telefono</td>
+                <td th:text="${persona.provincia}">Provincia</td>
+                <td th:text="${persona.profesion}">Profesion</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${persona.id}}">Editar</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${persona.id}}">Borrar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="1" cellpadding="10" th:fragment="vipzones">
+        <thead>
+            <tr>
+                <th>ID vip zone</th>
+                <th>Nombre</th>
+                <th>Numero de personas</th>
+                <th>Gasto</th>
+                <th>Disponibilidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vipzone : ${listaVipzones}">
+            	<td th:text="${vipzone.id}">ID vip zone</td>
+                <td th:text="${vipzone.zona}">Nombre</td>
+                <td th:text="${vipzone.numPersonas}">Numero de personas</td>
+                <td th:text="${vipzone.gasto}">Gasto</td>
+                <td th:text="${vipzone.disponibilidad}">Disponibilidad</td>
+                <td>
+                	<a th:href="@{'/editVipzone/' + ${vipzone.id}}">Editar</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/deleteVipzone/' + ${vipzone.id}}">Borrar</a>
+                </td>
+                <td>
+                	<a th:href="@{'/clientesVipzone/' + ${vipzone.id}}">Clientes</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="1" cellpadding="10" th:fragment="vipclientes">
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Dni</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+                <th>Vip zone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vipcliente : ${listaVipClientes}">
+            	<td th:text="${vipcliente.id}">ID vip zone</td>
+            	<td th:text="${vipcliente.dni}">Dni</td>
+                <td th:text="${vipcliente.nombre}">Nombre</td>
+                <td th:text="${vipcliente.edad}">Edad</td>
+                <td th:text="${vipcliente.ciudad}">Ciudad</td>
+                <td th:text="${vipcliente.vipzone.getId()}">Vip zone</td>
+                <td>
+                	<a th:href="@{'/editVipcliente/' + ${vipcliente.id}}">Editar</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/deleteVipcliente/' + ${vipcliente.id}}">Borrar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

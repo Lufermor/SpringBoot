@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+	<meta charset="utf-8"/>
+	<title>Lista de Pcs</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+	<div align="center">
+		<h1>Lista de Pcs</h1>
+    	<br/><br/>
+		<table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>Pc ID</th>
+	                <th>Marca</th>
+	                <th>Modelo</th>
+	                <th>Precio</th>
+	                <th>Estado</th>
+	                <th>Disco duro</th>
+	                <th>RAM</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="pc : ${listaPcs}">
+	            	<td th:text="${pc.id}">Pc ID</td>
+	                <td th:text="${pc.marca}">Marca</td>
+	                <td th:text="${pc.modelo}">Modelo</td>
+	                <td th:text="${pc.precio}">Precio</td>
+	                <td th:text="${pc.estado.estado}">Estado</td>
+	                <td th:text="${pc.disco}">Disco duro</td>
+	                <td th:text="${pc.ram}">Memoria RAM</td>
+	                <td>
+	                	<a th:href="@{'/editPc/' + ${pc.id}}">Editar</a>
+	                	&nbsp;&nbsp;&nbsp;
+	                	<a th:href="@{'/deletePc/' + ${pc.id}}">Borrar</a>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	    <br>
+    	<a href="nuevoPc">Añadir nuevo pc</a>
+	</div>   
+</body>
+</html>

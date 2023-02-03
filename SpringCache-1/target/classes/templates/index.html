@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head">
+	<meta charset="utf-8"/>
+	<title>Lista de Pcs</title>
+</head>
+<body>
+	<header th:replace="layout/layout::header"></header>
+
+<div align="center">
+    <h1>Lista de Pcs</h1>
+    <br/><br/>
+    <table th:replace="./show_pcs::table_pcs1"></table>
+    <br>
+    <a href="newPc">Añadir nuevo Pc</a>
+</div>    
+
+	<footer th:replace="layout/layout::footer" class="bg-dark"></footer>
+
+</body>
+</html>

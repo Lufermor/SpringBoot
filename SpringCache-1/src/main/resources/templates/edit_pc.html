@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Editar Pc</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Editar Pc</h1>
+		<br />
+		<form action="#" th:action="@{/savePc}" th:object="${pc}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>ID pc:</td>
+					<td>
+						<input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>			
+				<tr>				
+					<td>Marca:</td>
+					<td>
+						<input type="text" th:field="*{marca}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Modelo:</td>
+					<td><input type="text" th:field="*{modelo}" /></td>
+				</tr>
+				<tr>
+					<td>Precio:</td>
+					<td><input type="text" th:field="*{precio}" /></td>
+				</tr>
+				<tr>
+					<td>Estado:</td>
+					<td>
+						<select class="p-2 mt-4" aria-label="idEstado" id="idEstado" name="idEstado" required 
+							style="border-radius: 40px; max-width: 100%; background-color: #fbceb5; border: 0px">
+							<option selected th:text="${pc.estado.estado}" th:value="${pc.estado.id}"></option>
+							<option th:each="estado: ${listaEstados}" th:text="${estado.estado}"
+								th:value="${estado.id}"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Disco Duro:</td>
+					<td><input type="text" th:field="*{disco}" /></td>
+				</tr>
+				<tr>
+					<td>RAM:</td>
+					<td><input type="text" th:field="*{ram}" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Actualizar</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div class="form-cover">
+			<div class="container">
+				<form action="/ToHomePage" method="GET">
+					<button type="submit" class="btn btn-success">Volver al inicio</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/06194f4708.js"
+		crossorigin="anonymous"></script>
+</body>
+</html>
