@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout::head}">
+<meta charset="utf-8" />
+<title>Formulario nuevo country</title>
+</head>
+<body>
+	<header th:replace="~{layout/layout::header}"></header>
+	<br />
+	<br />
+	<div align="center">
+		<h1>Insertar nuevo country</h1>
+		<br />
+		<form th:action="@{/saveCountry}" th:object="${country}" method="POST">
+			<div th:if="${param.error}" class="alert alert-danger mb-3">Incorrecto</div>
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="${country.name}" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Guardar</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div class="form-cover">
+			<div class="container">
+				<form action="/ToHomePage" method="GET">
+					<button type="submit" class="btn btn-success">Volver al
+						inicio</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="~{layout/layout::footer}" class="bg-dark"></footer>
+</body>
+</html>

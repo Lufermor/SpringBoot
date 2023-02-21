@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout::head}">
+<meta charset="utf-8" />
+<title>Cryptocurrencies por country</title>
+</head>
+<body>
+	<header th:replace="~{layout/layout::header}"></header>
+	<div align="center">
+		<h1>Cryptocurrencies en </h1><h1 th:text="${country.name}"></h1>
+		<br/><br/>
+		<table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Nombre</th>
+	                <th>Descripción</th>
+	                <th>Precio</th>
+	                <th>Based in</th>
+	                <th>Autor</th>
+	                <th>Country</th>
+	            </tr>
+	        </thead>
+			<tbody>
+	            <tr th:each="cryptocurrency : ${listaCryptocurrencies}">
+	            	<td th:text="${cryptocurrency.id}">ID</td>
+	                <td th:text="${cryptocurrency.name}">Nombre</td>
+	                <td th:text="${cryptocurrency.description}">Descripción</td>
+	                <td th:text="${cryptocurrency.value}">Precio</td>
+	                <td th:text="${cryptocurrency.basedIn}">Based in</td>
+	                <td th:text="${cryptocurrency.author}">Autor</td>
+	                <td th:text="${cryptocurrency.country.name}">Country</td>
+	                <td>
+	                	<a th:href="@{'/editCryptocurrency/' + ${cryptocurrency.id}}">Editar</a>
+	                	&nbsp;&nbsp;&nbsp;
+	                	<a th:href="@{'/deleteCryptocurrency/' + ${cryptocurrency.id}}">Borrar</a>
+	                </td>
+	            </tr>
+	        </tbody>
+		</table>
+		<form action="/listar_countries" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">>Volver
+				al listado de countries</button>
+		</form>
+		<form action="/listarCryptocurrencies" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">>Volver
+				al listado de cryptocurrencies</button>
+		</form>
+		<form action="/ToHomePage" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">Volver
+				al inicio</button>
+		</form>
+	</div>
+
+	<footer th:replace="~{layout/layout::footer}" class="bg-dark"></footer>  
+</body>
+</html>

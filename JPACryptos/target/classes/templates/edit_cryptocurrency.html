@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout::head}">
+<meta charset="utf-8" />
+<title>Editar cryptocurrency</title>
+</head>
+<body>
+	<header th:replace="~{layout/layout::header}"></header>
+	<br /><br />
+	<div align="center">
+		<h1>Editar cryptocurrency</h1>
+		<br />
+		<form action="#" th:action="@{/saveCryptocurrency}"
+			th:object="${cryptocurrency}" method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>ID cryptocurrency:</td>
+					<td><input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td>Descripción:</td>
+					<td><input type="text" th:field="*{description}" /></td>
+				</tr>
+				<tr>
+					<td>Precio:</td>
+					<td><input type="text" th:field="*{value}" /></td>
+				</tr>
+				<tr>
+					<td>Based in:</td>
+					<td><input type="text" th:field="*{basedIn}" /></td>
+				</tr>
+				<tr>
+					<td>Autor:</td>
+					<td><input type="text" th:field="*{author}" /></td>
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td><select class="p-2 mt-4" aria-label="idCountry"
+						id="idCountry" name="idCountry" required
+						style="border-radius: 40px; max-width: 100%; background-color: #fbceb5; border: 0px">
+							<option selected th:text="${cryptocurrency.country.name}"
+								th:value="${cryptocurrency.country.id}"></option>
+							<option th:each="country: ${listaCountries}"
+								th:text="${country.name}" th:value="${country.id}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Actualizar</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form action="/listar_countries" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">Volver
+				al listado de countries</button>
+		</form>
+		<form action="/listarCryptocurrencies" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">Volver
+				al listado de cryptocurrencies</button>
+		</form>
+		<form action="/ToHomePage" method="GET">
+			<button type="submit" class="btn btn-secondary btn-sm">Volver
+				al inicio</button>
+		</form>
+		<div class="form-cover">
+			<div class="container">
+				<form action="/ToHomePage" method="GET">
+					<button type="submit" class="btn btn-success">Volver al
+						inicio</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="~{layout/layout::footer}" class="bg-dark"></footer>
+</body>
+</html>

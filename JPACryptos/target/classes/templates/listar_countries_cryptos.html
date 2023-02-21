@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout::head}">
+	<meta charset="utf-8"/>
+	<title>Cryptocurrencies countries</title>
+</head>
+<body>
+	<header th:replace="~{layout/layout::header}"></header>
+	<div align="center">
+		<h1>Lista de countries</h1>
+    	<br/><br/>
+		<table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Country</th>
+	                <th>Nº de cryptocurrencies</th>
+	                <th>Cryptocurrencies</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="country : ${listaCountries}">
+	            	<td th:text="${country.id}">ID</td>
+	                <td th:text="${country.name}">Country</td>
+	                <td th:text="${country.cryptocurrencies.size()}">Cryptocurrencies</td>
+					<td>
+						<a th:href="@{'/listarCryptocurrenciesPorCountry/' + ${country.id}}">Cryptocurrencies</a>
+					</td>
+	                <td>
+	                	<a th:href="@{'/editCountry/' + ${country.id}}">Editar</a>
+	                	&nbsp;&nbsp;&nbsp;
+	                	<a th:href="@{'/deleteCountry/' + ${country.id}}">Borrar</a>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	    <form action="newCountry" method="GET">
+			<button type="submit" class="btn btn-success">Insertar nuevo country</button>
+		</form>
+		<form action="#" th:action="@{/countriesMasCryptosDe}"	
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>Mostrar countries con más de : </td>
+					<td>
+						<input type="number" id="MasDeCryptos" name="MasDeCryptos" value="0" 
+							pattern="^[0-9]+" />
+						<p> cryptocurrencies</p>
+					</td>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Go!</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form action="#" th:action="@{/countriesMenosCryptosDe}"	
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>Mostrar countries con: </td>
+					<td>
+						<input type="number" id="MenosDeCryptos" name="MenosDeCryptos" value="0" 
+							pattern="^[0-9]+" />
+						<p> cryptocurrencies</p>
+					</td>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Go!</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form action="#" th:action="@{/countriesIgualCryptosDe}"	
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>Mostrar countries con menos de : </td>
+					<td>
+						<input type="number" id="IgualCryptos" name="IgualCryptos" value="0" 
+							pattern="^[0-9]+" />
+						<p> cryptocurrencies</p>
+					</td>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Go!</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form action="ToHomePage" method="GET">
+			<button type="submit" class="btn btn-success">Volver al inicio</button>
+		</form>
+	</div> 
+	<footer th:replace="~{layout/layout::footer}" class="bg-dark"></footer>  
+</body>
+</html>

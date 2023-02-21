@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout::head}">
+<meta charset="utf-8" />
+<title>Editar Country</title>
+</head>
+<body>
+	<header th:replace="~{layout/layout::header}"></header>
+	<div align="center">
+		<h1>Editar Country</h1>
+		<br />
+		<form action="#" th:action="@{/saveCountry}" th:object="${country}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>				
+					<td>ID country:</td>
+					<td>
+						<input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>			
+				<tr>				
+					<td>Nombre:</td>
+					<td>
+						<input type="text" th:field="*{name}" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="btn_uy">
+							<button class="btn btn-success" type="submit">Actualizar</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div class="form-cover">
+			<div class="container">
+				<form action="/ToHomePage" method="GET">
+					<button type="submit" class="btn btn-success">Volver al inicio</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="~{layout/layout::footer}" class="bg-dark"></footer>
+</body>
+</html>
