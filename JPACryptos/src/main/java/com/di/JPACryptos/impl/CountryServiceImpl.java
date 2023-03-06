@@ -58,5 +58,10 @@ public class CountryServiceImpl implements ICountryService{
 		return countryDao.countriesIgualCryptos(n);
 	}
 
+	@Override
+	public List<Country> findByName(String name) {
+		return countryDao.findByName(name);
+	}
+
 }
 
