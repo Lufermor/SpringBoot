@@ -6,6 +6,7 @@ import com.di.JPACryptos.entity.Country;
 
 public interface ICountryService {
 	
+	public List<Country> findByName(String name);
 	public List<Country> listAll();
 	public void save(Country estado);
 	public Country get(long id);
